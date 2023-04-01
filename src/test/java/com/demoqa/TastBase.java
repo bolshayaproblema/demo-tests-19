@@ -3,7 +3,7 @@ package com.demoqa;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 
-public class PracticeForm {
+public class TastBase {
 
     @BeforeAll
     static void beforeAll() {

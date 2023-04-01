@@ -1,7 +1,6 @@
 package com.demoqa;
 
 
-import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
 
 
@@ -12,10 +11,10 @@ import static com.codeborne.selenide.Selenide.*;
 import static org.openqa.selenium.Keys.CONTROL;
 
 
-public class PracticeFormTests extends PracticeForm {
+public class PracticeFormTests extends TastBase {
 
     @Test
-    void seccessfullPracticeFormTests() {
+    void successfulPracticeFormTests() {
 
         open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
@@ -27,7 +26,6 @@ public class PracticeFormTests extends PracticeForm {
         $("#userEmail").setValue("ivanpetrov@mail.com");
         $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("9999999999");
-        $("#dateOfBirthInput").click();
         $("#dateOfBirthInput").sendKeys(CONTROL + "A");
         $("#dateOfBirthInput").sendKeys("1995.07.02");
         $("#dateOfBirthInput").pressEnter();
