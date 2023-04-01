@@ -35,7 +35,7 @@ public class PracticeFormTests extends PracticeForm {
         $("#subjectsInput").setValue("Physics").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#uploadPicture").uploadFromClasspath("1.png");
-        $("#currentAddress").setValue("City Moscow, Lenin street");
+        $("#currentAddress").setValue("Moscow");
         $("#state").click();
         $(byText("Uttar Pradesh")).click();
         $("#city").click();
@@ -51,7 +51,7 @@ public class PracticeFormTests extends PracticeForm {
                 text("Physics"),
                 text("Sports"),
                 text("1.png"),
-                text("City Moscow,Lenin street"),
+                text("Moscow"),
                 text("Uttar Pradesh Lucknow"));
 
 
