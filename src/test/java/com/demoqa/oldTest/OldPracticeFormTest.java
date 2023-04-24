@@ -1,5 +1,7 @@
-package com.demoqa.tests;
+package com.demoqa.oldTest;
 
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 
@@ -11,6 +13,13 @@ import static org.openqa.selenium.Keys.CONTROL;
 
 
 public class OldPracticeFormTest {
+    @BeforeAll
+    static void beforeAll() {
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.browserSize = "1900 × 1000";
+        Configuration.holdBrowserOpen = true;
+        Configuration.pageLoadStrategy = "eager";
+    }
 
 
     @Test
@@ -29,7 +38,6 @@ public class OldPracticeFormTest {
         $("#dateOfBirthInput").sendKeys(CONTROL + "A");
         $("#dateOfBirthInput").sendKeys("1995.07.02");
         $("#dateOfBirthInput").pressEnter();
-        $("#subjectsContainer").click();
         $("#subjectsInput").setValue("Physics").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#uploadPicture").uploadFromClasspath("1.png");
