@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -47,7 +46,6 @@ public class OldPracticeFormTest {
         $("#city").click();
         $(byText("Lucknow")).click();
         $("#submit").click();
-
 
         $(".table-responsive").shouldHave(text("Ivan Petrov"),
                 text("ivanpetrov@mail.com"),
