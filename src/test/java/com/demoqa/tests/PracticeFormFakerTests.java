@@ -22,6 +22,7 @@ public class PracticeFormFakerTests extends TestBase {
     yearOfBirth = String.valueOf(getRandomInt(1943, 2001)),
     subject = faker.options().option(subjects),
     hobbies = faker.options().option(TestData.hobbies),
+    picture = faker.options().option(TestData.picture),
     address = faker.address().streetAddress(),
     sates = faker.options().option(states),
     city = getRandomCity(sates);
@@ -40,7 +41,7 @@ public class PracticeFormFakerTests extends TestBase {
                 .setBerthDate(dayOfBirth, monthOfBirth, yearOfBirth)
                 .setSubjects(subject)
                 .setHobbies(hobbies)
-                .setPicture("1.png")
+                .setPicture(picture)
                 .setAddress(address)
                 .setState(sates)
                 .setCity(city)
@@ -53,7 +54,7 @@ public class PracticeFormFakerTests extends TestBase {
                 .verifyResult("Date of Birth",  dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
                 .verifyResult("Subjects", subject)
                 .verifyResult("Hobbies", hobbies)
-                .verifyResult("Picture", "1.png")
+                .verifyResult("Picture", picture)
                 .verifyResult("Address", address)
                 .verifyResult("State and City", sates + " " + city);
 

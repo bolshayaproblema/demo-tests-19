@@ -1,6 +1,7 @@
 package com.demoqa.tests;
 
 public class TestData {
+
   public static String[] months = {"January", "February", "March", "April", "May", "June",
           "July", "August", "September", "October", "November", "December"};
 
@@ -8,6 +9,7 @@ public class TestData {
           "Computer Science", "Economics", "Social Studies", "History", "Civics", "Commerce", "Hindi", "Biology"};
 
   public static String[] hobbies = {"Reading", "Sports", "Music"};
+  public  static  String[] picture = { "1.png"};
 
   public static String[] states = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
 
