@@ -1,27 +1,15 @@
 package com.demoqa.utils;
 
+import com.github.javafaker.Faker;
+
 import java.security.SecureRandom;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
+import static com.demoqa.tests.TestData.*;
+
 public class RandomUtils {
-    static String[] genders = {"Male", "Female", "Other"};
-    public static void main(String[] args) {
-        System.out.println(getRandomUuid());
-        System.out.println(getRandomString(10));
-        System.out.println(getRandomEmail());
-        System.out.println(getRandomInt(11111111, 99999999));
-        System.out.println(getRandomPhone());
 
-
-        System.out.println(getRandomItemFromArray(genders));
-    }
-
-
-    public static String getRandomUuid() {
-        String uuid = UUID.randomUUID().toString();
-        return "uuid = " + uuid;
-    }
 
     public static String getRandomString(int len) {
         // String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -34,32 +22,36 @@ public class RandomUtils {
             sb.append(AB.charAt(rnd.nextInt(AB.length())));
         return sb.toString();
     }
-
-    public static String getRandomEmail() {
-        return getRandomString(10) + "@qa.guru";
-    }
-
+    private static Faker faker = new Faker();
     public static int getRandomInt(int min, int max) {
         return ThreadLocalRandom.current().nextInt(min, max + 1);
     }
-
-    public static String getRandomPhone() {
-        return "+7 (9" + getRandomInt(11, 99) + ")" + getRandomInt(1111, 9999) + " - " + getRandomInt(111, 999);
+    public static String getRandomCity(String state) {
+        String city;
+        switch (state) {
+            case "NCR": {
+                city = faker.options().option(stateNCR);
+                return city;
+            }
+            case "Uttar Pradesh": {
+                city = faker.options().option(stateUttarPradesh);
+                return city;
+            }
+            case "Haryana": {
+                city = faker.options().option(stateHaryana);
+                return city;
+            }
+            case "Rajasthan": {
+                city = faker.options().option(stateRajasthan);
+                return city;
+            }
+        }
+        return null;
     }
 
-    public static Long getRandomLong() {
-        return null; // todo realise
-    }
-
-
-    private static String getRandomItemFromArray(String[] values) {
-        int index = getRandomInt(0, values.length - 1);
-
-        return values[index];
-    }
-
-    public static String getRandomGander() {
-       return getRandomItemFromArray(genders);
-    }
 }
+
+
+
+
 
