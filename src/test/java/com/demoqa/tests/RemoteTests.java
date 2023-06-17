@@ -3,6 +3,7 @@ package com.demoqa.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.github.javafaker.Faker;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -36,10 +37,12 @@ public class RemoteTests extends RemoteTestBase {
     @Tag("remote")
     @DisplayName("Успешная регистрация")
     void successfulPracticeFormTests() {
-
+        step("Открываем страницу", () -> {
             registrationPage.openPage()
-                    .removeBanners()
-                .setFirstName(firstName)
+                    .removeBanners();
+        });
+        step("Заполняем данные",() -> {
+                registrationPage.setFirstName(firstName)
                 .setLastName(lastName)
                 .setUserEmail(userEmail)
                 .setGender(userGender)
@@ -50,9 +53,12 @@ public class RemoteTests extends RemoteTestBase {
                 .setPicture(picture)
                 .setAddress(address)
                 .setState(sates)
-                .setCity(city)
-                .clickSubmit();
-
+                .setCity(city);
+        });
+        step("Отправляем форму",() -> {
+                registrationPage.clickSubmit();
+        });
+        step("Проверка правильности заполнения полей", () -> {
         registrationPage.verifyResult("Student Name", firstName + " " + lastName)
                 .verifyResult("Student Email", userEmail)
                 .verifyResult("Gender", userGender)
@@ -63,7 +69,7 @@ public class RemoteTests extends RemoteTestBase {
                 .verifyResult("Picture", picture)
                 .verifyResult("Address", address)
                 .verifyResult("State and City", sates + " " + city);
-
+        });
 
     }
 }
