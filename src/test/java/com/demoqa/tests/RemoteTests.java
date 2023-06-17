@@ -3,12 +3,14 @@ package com.demoqa.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.github.javafaker.Faker;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.demoqa.tests.TestData.*;
 import static com.demoqa.utils.RandomUtils.getRandomCity;
 import static com.demoqa.utils.RandomUtils.getRandomInt;
+import static io.qameta.allure.Allure.step;
 
 
 public class RemoteTests extends RemoteTestBase {
@@ -32,10 +34,11 @@ public class RemoteTests extends RemoteTestBase {
 
     @Test
     @Tag("remote")
+    @DisplayName("Успешная регистрация")
     void successfulPracticeFormTests() {
 
-        registrationPage.openPage()
-                .removeBanners()
+            registrationPage.openPage()
+                    .removeBanners()
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setUserEmail(userEmail)
