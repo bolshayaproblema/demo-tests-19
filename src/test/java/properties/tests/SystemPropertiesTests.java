@@ -3,6 +3,8 @@ package properties.tests;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static java.lang.String.format;
+
 public class SystemPropertiesTests {
     @Test
     void systemPropertiesTest() {
@@ -39,5 +41,18 @@ public class SystemPropertiesTests {
         // gradle property_test = mozilla
 
         // gradle property_test -Dbrowzer=opera  = opera (после добавления в build.gradle "systemProperties(System.getProperties())"), чтобы игнорировать дефолтный chrome!
+    }
+
+    @Test
+    @Tag("hello")
+    void systemProperties5Test() {
+        String name = System.getProperty("browser", "default student");
+        String message = format("Hello, %s!", name);
+
+        System.out.println(message);
+        // gradle hello_test = Hello, default student!
+        // gradle hello_test -Dname="Alex Egorov"
+        // gradle hello_test "-Dname=Alex Egorov"
+
     }
 }
